@@ -6,8 +6,8 @@ const app = express();
 const { AuthRoutes, DashboardRoutes } = require("./routes/v1/index");
 const db = require("./config/dbconfig.js");
 const corsOptions = {
-  origin: "http://localhost:5173", // Replace with your client-side URL
-  credentials: true,  // This is required to send cookies with the request
+  origin: "http://localhost:5173",
+  credentials: true,  
 };
 
 app.use(cors(corsOptions));

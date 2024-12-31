@@ -1,0 +1,9 @@
+.taskItem{
+    border: 1px solid rgb(0, 110, 255);
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}

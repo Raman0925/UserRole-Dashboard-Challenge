@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 import AuthContext from "./context"
 import Dashboard from "./Dashboard";
@@ -34,11 +35,21 @@ const [isloggedIn , setIsloggedIn] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+
+        const response = await axios.post(
         "http://127.0.0.1:3000/auth/login",
         loginData,
-        { withCredentials: true }
+        { withCredentials: true,
+          
+         }
       );
+      console.log(response.data)
+      localStorage.setItem('token', 'null');
+
+      localStorage.setItem('token', response.data.data.token);
+
+
+     
       
       setIsloggedIn(true);
       
@@ -92,7 +103,7 @@ const [isloggedIn , setIsloggedIn] = useState(false);
         <button type="submit">Login</button>
       </form>
 
-     { isloggedIn && <Dashboard loginData={loginData}/>}
+     { isloggedIn &&<Dashboard loginData={loginData}/>}
       
     </>
   );

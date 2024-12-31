@@ -16,13 +16,13 @@ const register = async (req, res) => {
 
     const savedUser = await newUser.save();
     const token = await savedUser.getJWT();
-    const tokenBearer = "Bearer " + token;
+    
 
     res.cookie("token", token, {
       expires: new Date(Date.now() + 8 * 3600000),
       httpOnly: true,
       secure: false,
-      sameSite: "None"
+      sameSite: "None",
     });
     res.json(new ApiResponse(201, savedUser, "User Created Successfully"));
   } catch (error) {
@@ -43,14 +43,14 @@ const login = async (req, res) => {
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (isPasswordValid) {
       const token = await user.getJWT();
-      res.cookie("token", token, {
-        expires: new Date(Date.now() + 8 * 3600000),
-        httpOnly: true,
-        secure: false,
-        sameSite: "None",
-      });
-      user.token = token;
-
+      if(token===undefined){
+        const token = await user.getJWT();
+      
+      }
+  
+  
+    
+  
       res
         .status(201)
         .json(new ApiResponse(200, { user, token }, "Login Successfully"));
