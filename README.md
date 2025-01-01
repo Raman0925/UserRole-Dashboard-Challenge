@@ -24,7 +24,7 @@ Before setting up the backend and frontend, ensure that you have the following i
 - [npm](https://www.npmjs.com/) (Node Package Manager, typically installed with Node.js)
 - [Git](https://git-scm.com/)
 - A code editor such as [VSCode](https://code.visualstudio.com/)
-
+- MongoDB
 ## Folder Structure
 /project-folder
   ├── /backend
@@ -40,15 +40,7 @@ Before setting up the backend and frontend, ensure that you have the following i
  # 3. Set up Environment Variables
     Create a .env file in the backend folder to store your environment variables. Example .env file:
 
-        env
-        Copy code
-        PORT=3000
-        MONGO_URI=mongodb://localhost:27017/your-db-name
-        JWT_SECRET=userRole
-        PORT: The port your backend will run on.
-        MONGO_URI: The MongoDB connection string.
-        JWT_SECRET: The secret key used for JWT authentication.
-        4. Start the Backend Server
+        
  #  Run the following command to start the backend server:
 
     npm run dev
@@ -65,17 +57,15 @@ Make sure that MongoDB is running locally on your machine, or you can use a clou
     Run the following command to install the frontend dependencies:
 
     npm install
-    3. Set up Environment Variables (Optional)
-    If your frontend requires any API keys or environment variables (e.g., for the backend URL), you can create a .env file in the frontend folder:
+# 
 
-
-REACT_APP_API_URL=http://localhost:5137
+     
 ## 4. Start the Frontend Development Server
     Run the following command to start the frontend server:
 
 
-    npm start
-    Your React app should now be running on http://localhost:3000.
+    npm run dev
+    Your React app should now be running on localhost.
 
 ``Backend and Frontend Communication
 Make sure your frontend is correctly making requests to the backend API. In your React app, you can use axios or fetch to interact with the backend.

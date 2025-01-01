@@ -8,10 +8,7 @@ const connect = async (uri) => {
     
   }
   try {
-    await mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(uri);
   } catch (error) {
     console.log("Database connection error:", error);
     throw error;
