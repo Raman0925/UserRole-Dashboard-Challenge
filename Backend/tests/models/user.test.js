@@ -8,7 +8,7 @@ describe("Creating document in MongoDB", () => {
     try {
       const user = new User({
         fullName: "Raman",
-        emailId: "raman.k6@gmail.com",
+        emailId: "raman.k586@gmail.com",
         password: "Raman0925@",
       });
 

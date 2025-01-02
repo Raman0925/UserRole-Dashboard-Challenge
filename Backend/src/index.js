@@ -18,7 +18,7 @@ app.use("/dashboard", DashboardRoutes);
 
 const startServer = async () => {
   try {
-    await db.connect(process.env.DB_URI);
+    // await db.connect(process.env.DB_URI);
     await app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
     });
@@ -28,3 +28,4 @@ const startServer = async () => {
 };
 
 startServer();
+module.exports = app;

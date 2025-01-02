@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 before(async function() {
     try {
-      await mongoose.connect('mongodb://localhost:27017/testdb');
+      await mongoose.connect('mongodb://localhost:27017/testdC');
       console.log('Connected to MongoDB');
     } catch (err) {
       console.error('MongoDB connection error:', err);
@@ -16,3 +16,6 @@ beforeEach((done)=>{
     console.log('Running before each unit test')
     done();
 })
+after(async () => {
+  await mongoose.disconnect(); // Ensures disconnect after tests
+});
